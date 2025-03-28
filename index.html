@@ -293,55 +293,77 @@
     <script>
       const vehicles = [
         {
-          year: "2025",
+          year: "2024",
           name: "Tacoma",
           tagline: "Redefine your limits.",
           price: "$31,590",
           disclaimer: "Starting MSRP",
-          mpg: "21/26 MPG",
-          mpgDisclaimer: "Up to E4: FY90 ***",
-          image: "https://via.placeholder.com/400x300?text=Tacoma+2025",
+          mpg: "20/23 MPG",
+          mpgDisclaimer: "4WD Double Cab V6",
+          image: "https://toyotacanada.scene7.com/is/image/toyotacanada/20_Tacoma_TRD_Off-Road_Cement_1?ts=1688694123022&$Media-Large$&dpr=off",
           category: "trucks"
         },
         {
-          year: "2025",
+          year: "2024",
           name: "Tundra",
           tagline: "Take on the toughest demands.",
           price: "$40,090",
           disclaimer: "Starting MSRP",
-          mpg: "18/23 MPG",
-          mpgDisclaimer: "Up to E4: FY90 ***",
-          image: "https://via.placeholder.com/400x300?text=Tundra+2025",
+          mpg: "18/22 MPG",
+          mpgDisclaimer: "4WD Double Cab",
+          image: "https://images.customwheeloffset.com/web-compressed/936421-1-2020-tundra-toyota-bulletproof-lifted-12in-american-truxx-dna-custom.jpg",
           category: "trucks"
         },
         {
-          year: "2025",
+          year: "2024",
           name: "RAV4",
           tagline: "Adventure awaits.",
           price: "$28,350",
           disclaimer: "Starting MSRP",
           mpg: "27/35 MPG",
-          mpgDisclaimer: "Up to E4: FY90 ***",
-          image: "https://via.placeholder.com/400x300?text=RAV4+2025",
+          mpgDisclaimer: "FWD models",
+          image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/2019_Toyota_RAV4_LE_2.5L_front_4.14.19.jpg/330px-2019_Toyota_RAV4_LE_2.5L_front_4.14.19.jpg",
           category: "suvs"
         },
         {
-          year: "2025",
+          year: "2024",
           name: "Camry",
           tagline: "The best never rests.",
           price: "$26,420",
           disclaimer: "Starting MSRP",
           mpg: "28/39 MPG",
-          mpgDisclaimer: "Up to E4: FY90 ***",
-          image: "https://via.placeholder.com/400x300?text=Camry+2025",
+          mpgDisclaimer: "LE 4-Cylinder",
+          image: "https://global.toyota/pages/models/images/20191018/kv/camry_w1920_01.jpg",
           category: "cars"
+        },
+        {
+          year: "2024",
+          name: "Corolla",
+          tagline: "Built for the drive.",
+          price: "$22,050",
+          disclaimer: "Starting MSRP",
+          mpg: "32/41 MPG",
+          mpgDisclaimer: "LE 4-Cylinder",
+          image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Toyota_Corolla_Hybrid_%28E210%29_IMG_4338.jpg/280px-Toyota_Corolla_Hybrid_%28E210%29_IMG_4338.jpg",
+          category: "cars"
+        },
+        {
+          year: "2024",
+          name: "Highlander",
+          tagline: "Capable of more.",
+          price: "$36,420",
+          disclaimer: "Starting MSRP",
+          mpg: "21/29 MPG",
+          mpgDisclaimer: "FWD models",
+          image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Toyota_Highlander_Hybrid_%28XU70%29_1X7A6356.jpg/280px-Toyota_Highlander_Hybrid_%28XU70%29_1X7A6356.jpg",
+          category: "suvs"
         }
       ];
 
       function createVehicleCard(vehicle) {
         return `
           <div class="vehicle-card">
-            <div class="vehicle-image" style="background-image: url('${vehicle.image}')"></div>
+            <div class="vehicle-image" style="background-image: url('${vehicle.image}');"></div>
             <div class="vehicle-info">
               <div class="vehicle-year">${vehicle.year}</div>
               <h3 class="vehicle-title">${vehicle.name}</h3>
