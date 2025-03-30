@@ -252,3 +252,92 @@
       right: 0;
     }
   }
+
+  /* ===== MOBILE STYLES ===== */
+@media (max-width: 576px) {
+  #vehicleCarousel {
+      padding: 0 5px; /* Reduced from 30px */
+      margin: 1rem auto; /* Reduced from 2rem */
+  }
+  
+  .vehicle-card {
+      margin: 0 5px; /* Reduced from 12px */
+  }
+  
+  #vehicleCarousel .carousel-inner {
+      padding: 5px 0; /* Reduced from 15px 30px */
+  }
+  
+  .card-img-container {
+      height: 140px; /* Reduced from 160px */
+  }
+  
+  .card-body {
+      padding: 12px; /* Reduced from 18px */
+  }
+  
+  .card-body h3 {
+      font-size: 1.2rem; /* Reduced from 1.4rem */
+  }
+  
+  .card-body p {
+      font-size: 0.85rem; /* Reduced from 1rem */
+      margin-bottom: 12px; /* Reduced from 16px */
+  }
+  
+  .card-body h4 {
+      font-size: 1.1rem; /* Reduced from 1.3rem */
+      margin: 4px 0 12px 0; /* Reduced margins */
+  }
+  
+  .btn-view-details {
+      padding: 10px; /* Reduced from 12px */
+      font-size: 0.8rem; /* Reduced from 0.9rem */
+  }
+  
+  /* Make mobile navigation controls more compact */
+  #vehicleCarousel .carousel-control-prev,
+  #vehicleCarousel .carousel-control-next {
+      width: 30px; /* Reduced from 36px */
+      height: 30px; /* Reduced from 36px */
+  }
+  
+  .section-heading {
+      font-size: 1.5rem; /* Reduced from 1.8rem */
+      margin-bottom: 1.5rem; /* Reduced from 2rem */
+  }
+  
+  .section-heading:after {
+      width: 60px; /* Reduced from 80px */
+      height: 3px; /* Reduced from 4px */
+      margin: 10px auto 0; /* Reduced from 15px */
+  }
+}
+
+/* Extra small devices (phones under 400px) */
+@media (max-width: 400px) {
+  #vehicleCarousel {
+      padding: 0 2px;
+  }
+  
+  .vehicle-card {
+      margin: 0 3px;
+  }
+  
+  .card-img-container {
+      height: 120px;
+  }
+  
+  .card-body {
+      padding: 8px;
+  }
+  
+  .card-body h3 {
+      font-size: 1.1rem;
+  }
+  
+  .btn-view-details {
+      padding: 8px;
+      font-size: 0.75rem;
+  }
+}
