@@ -13,24 +13,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <style>
-        /* General Styles */        
-        /* Hero Carousel Styles */
-        #carouselExampleIndicators .carousel-item {
-            position: relative;
-            height: 500px;
-            overflow: hidden;
-        }
-
-        #carouselExampleIndicators .carousel-item video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         #carouselExampleIndicators .carousel-item::before {
             content: "";
             position: absolute;
@@ -47,100 +29,9 @@
             z-index: 2;
         }
         
-        /* Card Carousel Styles */
-        #cardCarousel {
-            padding: 40px 0;
-            background-color: #f8f9fa;
-        }
-        
-        .card-slide {
-            display: none;
-        }
-        
-        .card-slide.active {
-            display: block;
-        }
-        
-        .vehicle-card {
-          height: 100%;
-        }
-        
-        .vehicle-image {
-          min-height: 250px;
-          background-size: contain;
-          background-position: center;
-          background-repeat: no-repeat;
-        }
-        
-        .carousel-controls {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #ccc;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-        
-        .carousel-dot.active {
-            background-color: #333;
-        }
-        
-        /* Carousel Navigation Buttons */
-        #cardCarousel .carousel-control-prev,
-        #cardCarousel .carousel-control-next {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 40px;
-          height: 40px;
-          background-color: rgba(0,0,0,0.5);
-          border-radius: 50%;
-          opacity: 0.8;
-          z-index: 10;
-          border: none;
-        }
-
-        #cardCarousel .carousel-control-prev {
-          left: 15px;
-        }
-
-        #cardCarousel .carousel-control-next {
-          right: 15px;
-        }
-
-        #cardCarousel .carousel-control-prev:hover,
-        #cardCarousel .carousel-control-next:hover {
-          opacity: 1;
-          background-color: rgba(0,0,0,0.7);
-        }
-
-        /* Ensure icons are visible */
-        #cardCarousel .carousel-control-prev-icon,
-        #cardCarousel .carousel-control-next-icon {
-          background-size: 60%;
-          filter: brightness(0) invert(1); /* Makes icons white */
-        }
-
-
-        @media (max-width: 768px) {
-          .vehicle-card {
-            flex-direction: column; /* Stack image + info vertically */
-          }
-          
-          .vehicle-image {
-            height: 200px; /* Fixed height on mobile */
-          }
-          
-          .vehicle-image,
-          .vehicle-info {
-            width: 100%; /* Full width on small screens */
-          }
+        @media (min-width: 768px) {
+          .carousel-inner { flex-wrap: nowrap; }
+          .carousel-slide { flex: 0 0 33.33%; display: block; }
         }
     </style>
 </head>
@@ -181,8 +72,20 @@
         </div>
 
         <div class="carousel-inner">
-            <div class="carousel-item carousel-item1 active">
-                <video autoplay muted loop>
+            <div class="carousel-item  active" style="
+                position: relative;
+                height: 500px;
+                overflow: hidden;
+              ">
+                <video autoplay muted loop  style="
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                ">
                     <source src="Assets/Videos/Supra MK4 short edit.mp4" type="video/mp4">
                 </video> 
                 <div class="carousel-caption flex-column mb-5">
@@ -192,8 +95,20 @@
                 </div>
             </div>
 
-            <div class="carousel-item carousel-item1">
-                <video autoplay muted loop>
+            <div class="carousel-item"  style="
+                position: relative;
+                height: 500px;
+                overflow: hidden;
+              ">
+                <video autoplay muted loop style="
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                ">
                     <source src="Assets/Videos/Toyota Fortuner _ Offroad _ Cinematic Video _ India.mp4">
                 </video>
                 <div class="carousel-caption flex-column mb-5">
@@ -203,8 +118,20 @@
                 </div>
             </div>
 
-            <div class="carousel-item carousel-item1">
-                <video autoplay muted loop>
+            <div class="carousel-item " style="
+                position: relative;
+                height: 500px;
+                overflow: hidden;
+              ">
+                <video autoplay muted loop style="
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                ">
                     <source src="Assets/Videos/Toyota Supra _ 4K Cinematic Video.mp4">
                 </video>
                 <div class="carousel-caption flex-column mb-5">
@@ -227,26 +154,24 @@
     </div>
 
     
-    <!-- Card Carousel Section -->
     <section id="cardCarousel" class="position-relative">
       <div class="container-fluid px-0 px-md-3">
-        <h2 class="text-center mb-5"style="font: 3em poppins; font-weight: 700;">Explore Our Vehicles</h2>
-        
-        <!-- Slides will be inserted here by JavaScript -->
-        <div class="row gx-2 gx-md-3"></div>
-        
-        <!-- Navigation dots -->
-        <div class="carousel-controls">
-          <!-- Dots will be added dynamically based on number of slides -->
-        </div>
-        
-        <!-- Navigation buttons -->
-        <button class="carousel-control-prev" type="button">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </button>
-        <button class="carousel-control-next" type="button">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </button>
+        <h2 class="text-center mb-5" style="font: 3em poppins; font-weight: 700;">Explore Our Vehicles</h2>
+        <div class="carousel-inner"></div>
+        <div class="carousel-controls"></div>
+        <button class="carousel-control-prev" type="button" 
+          style="position: absolute; top: 50%; transform: translateY(-50%);
+          background: rgba(0,0,0,0.5); color: white; border: none;
+          cursor: pointer; padding: 10px; font-size: 1.5em;
+          left: 10px;"
+        >&#10094;</button>
+
+        <button class="carousel-control-next" type="button"
+          style="position: absolute; top: 50%; transform: translateY(-50%);
+          background: rgba(0,0,0,0.5); color: white; border: none;
+          cursor: pointer; padding: 10px; font-size: 1.5em;
+          right: 10px;"
+        >&#10095;</button>
       </div>
     </section>
 
@@ -284,193 +209,191 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <!-- Custom Carousel Script -->
     <script>
       const vehicles = [
-        {
-          year: "2024",
-          name: "Tacoma",
-          tagline: "Redefine your limits.",
-          price: "$31,590",
-          disclaimer: "Starting MSRP",
-          mpg: "20/23 MPG",
-          mpgDisclaimer: "4WD Double Cab V6",
-          image: "https://toyotacanada.scene7.com/is/image/toyotacanada/20_Tacoma_TRD_Off-Road_Cement_1?ts=1688694123022&$Media-Large$&dpr=off",
-          category: "trucks"
-        },
-        {
-          year: "2024",
-          name: "Tundra",
-          tagline: "Take on the toughest demands.",
-          price: "$40,090",
-          disclaimer: "Starting MSRP",
-          mpg: "18/22 MPG",
-          mpgDisclaimer: "4WD Double Cab",
-          image: "https://images.customwheeloffset.com/web-compressed/936421-1-2020-tundra-toyota-bulletproof-lifted-12in-american-truxx-dna-custom.jpg",
-          category: "trucks"
-        },
-        {
-          year: "2024",
-          name: "RAV4",
-          tagline: "Adventure awaits.",
-          price: "$28,350",
-          disclaimer: "Starting MSRP",
-          mpg: "27/35 MPG",
-          mpgDisclaimer: "FWD models",
-          image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/2019_Toyota_RAV4_LE_2.5L_front_4.14.19.jpg/330px-2019_Toyota_RAV4_LE_2.5L_front_4.14.19.jpg",
-          category: "suvs"
-        },
-        {
-          year: "2024",
-          name: "Camry",
-          tagline: "The best never rests.",
-          price: "$26,420",
-          disclaimer: "Starting MSRP",
-          mpg: "28/39 MPG",
-          mpgDisclaimer: "LE 4-Cylinder",
-          image: "https://global.toyota/pages/models/images/20191018/kv/camry_w1920_01.jpg",
-          category: "cars"
-        },
-        {
-          year: "2024",
-          name: "Corolla",
-          tagline: "Built for the drive.",
-          price: "$22,050",
-          disclaimer: "Starting MSRP",
-          mpg: "32/41 MPG",
-          mpgDisclaimer: "LE 4-Cylinder",
-          image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Toyota_Corolla_Hybrid_%28E210%29_IMG_4338.jpg/280px-Toyota_Corolla_Hybrid_%28E210%29_IMG_4338.jpg",
-          category: "cars"
-        },
-        {
-          year: "2024",
-          name: "Highlander",
-          tagline: "Capable of more.",
-          price: "$36,420",
-          disclaimer: "Starting MSRP",
-          mpg: "21/29 MPG",
-          mpgDisclaimer: "FWD models",
-          image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Toyota_Highlander_Hybrid_%28XU70%29_1X7A6356.jpg/280px-Toyota_Highlander_Hybrid_%28XU70%29_1X7A6356.jpg",
-          category: "suvs"
-        }
-      ];
+  { 
+    year: "2024", 
+    name: "Tacoma", 
+    tagline: "Redefine your limits.", 
+    price: "$31,590", 
+    image: "https://toyotacanada.scene7.com/is/image/toyotacanada/20_Tacoma_TRD_Off-Road_Cement_1?ts=1688694123022&$Media-Large$&dpr=off" 
+  },
+  { 
+    year: "2024", 
+    name: "Tundra", 
+    tagline: "Take on the toughest demands.", 
+    price: "$40,090", 
+    image: "https://images.customwheeloffset.com/web-compressed/936421-1-2020-tundra-toyota-bulletproof-lifted-12in-american-truxx-dna-custom.jpg" 
+  },
+  { 
+    year: "2024", 
+    name: "RAV4", 
+    tagline: "Adventure awaits.", 
+    price: "$28,350", 
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/2019_Toyota_RAV4_LE_2.5L_front_4.14.19.jpg/330px-2019_Toyota_RAV4_LE_2.5L_front_4.14.19.jpg" 
+  },
+  { 
+    year: "2024", 
+    name: "Camry", 
+    tagline: "The best never rests.", 
+    price: "$26,420", 
+    image: "https://global.toyota/pages/models/images/20191018/kv/camry_w1920_01.jpg" 
+  },
+];
 
-      function createVehicleCard(vehicle) {
-        return `
-          <div class="col-lg-6 mb-4">
-            <div class="card vehicle-card overflow-hidden shadow-lg h-100">
-              <div class="row g-0 h-100">
-                <!-- Image section (takes more width) -->
-                <div class="col-md-7 vehicle-image" 
-                    style="background-image: url('${vehicle.image}')">
-                </div>
-                
-                <!-- Info section -->
-                <div class="col-md-5 d-flex flex-column p-3 p-md-4 vehicle-info">
-                  <div class="text-muted small">${vehicle.year}</div>
-                  <h3 class="h4 mb-2">${vehicle.name}</h3>
-                  <p class="lead mb-3">${vehicle.tagline}</p>
-                  
-                  <div class="h5 fw-bold mb-1">${vehicle.price}</div>
-                  <div class="text-muted small mb-3">${vehicle.disclaimer}</div>
-                  
-                  <div class="mt-auto">
-                    <div class="mb-2">${vehicle.mpg}</div>
-                    <div class="text-muted small mb-3">${vehicle.mpgDisclaimer}</div>
-                    
-                    <div class="d-grid gap-2 d-md-flex">
-                      <button class="btn btn-outline-dark flex-grow-1">Explore</button>
-                      <button class="btn btn-dark flex-grow-1">Build</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        `;
-      }
-
-      document.addEventListener('DOMContentLoaded', function() {
-        // Create slides from vehicle data
-        const slidesContainer = document.querySelector('#cardCarousel .row');
-        let currentSlideIndex = 0;
-        let slides = [];
-        
-        // Group vehicles into slides (2 vehicles per slide)
-        for (let i = 0; i < vehicles.length; i += 2) {
-          const slideVehicles = vehicles.slice(i, i + 2);
-          slides.push(slideVehicles);
-        }
-        
-        // Generate HTML for slides
-        // Replace with this updated version
-        slidesContainer.innerHTML = `
-          <div class="container-fluid px-0 px-md-3">
-            <div class="row gx-2 gx-md-3">
-              ${slides.map((slideVehicles, index) => `
-                <div class="card-slide ${index === 0 ? 'active' : ''}">
-                  <div class="row">
-                    ${slideVehicles.map(vehicle => createVehicleCard(vehicle)).join('')}
-                  </div>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-        `;
-        
-        const dotsContainer = document.querySelector('.carousel-controls');
-        dotsContainer.innerHTML = slides.map((_, index) => `
-          <div class="carousel-dot ${index === 0 ? 'active' : ''}" data-slide="${index}"></div>
-        `).join('');
-
-          // Get references to the newly created elements
-          const slidesElements = document.querySelectorAll('.card-slide');
-          const dots = document.querySelectorAll('.carousel-dot');
-          const prevBtn = document.querySelector('#cardCarousel .carousel-control-prev');
-          const nextBtn = document.querySelector('#cardCarousel .carousel-control-next');
-        
-        function showSlide(index) {
-          // Wrap around if at beginning or end
-          if (index >= slidesElements.length) {
-            index = 0;
-          } else if (index < 0) {
-            index = slidesElements.length - 1;
-          }
-          
-          // Hide all slides
-          slidesElements.forEach(slide => slide.classList.remove('active'));
-          dots.forEach(dot => dot.classList.remove('active'));
-          
-          // Show selected slide
-          slidesElements[index].classList.add('active');
-          if (dots[index]) dots[index].classList.add('active');
-          currentSlideIndex = index;
-        }
-        
-        // Dot navigation
-        dots.forEach((dot, index) => {
-          dot.addEventListener('click', () => {
-            showSlide(index);
-          });
-        });
-        
-        // Button navigation
-        prevBtn.addEventListener('click', () => {
-          showSlide(currentSlideIndex - 1);
-        });
-        
-        nextBtn.addEventListener('click', () => {
-          showSlide(currentSlideIndex + 1);
-        });
-        
-        // Auto-rotate (optional)
-        setInterval(() => {
-          showSlide(currentSlideIndex + 1);
-        }, 5000);
-        
-        // Initialize first slide
-        showSlide(0);
-      });
+document.addEventListener("DOMContentLoaded", function() {
+  // Initialize carousel elements
+  const carousel = document.querySelector("#cardCarousel");
+  const slidesContainer = carousel.querySelector(".carousel-inner");
+  const prevBtn = carousel.querySelector(".carousel-control-prev");
+  const nextBtn = carousel.querySelector(".carousel-control-next");
+  
+  // Set initial container styles
+  slidesContainer.style.cssText = `
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    transition: transform 0.5s ease;
+  `;
+  
+  // Generate slides HTML
+  slidesContainer.innerHTML = vehicles.map(vehicle => `
+    <div class="carousel-slide" style="
+      flex: 0 0 100%;
+      padding: 0 15px;
+      box-sizing: border-box;
+      min-width: 0; /* Fixes flexbox overflow issue */
+    ">
+      <div class="card" style="
+        text-align: center;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        height: 100%;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      ">
+        <img src="${vehicle.image}" alt="${vehicle.name}" style="
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 8px 8px 0 0;
+        ">
+        <div style="padding: 15px;">
+          <h3 style="margin: 10px 0; font-size: 1.5rem; font-weight: 600;">${vehicle.year} ${vehicle.name}</h3>
+          <p style="color: #666; margin-bottom: 15px;">${vehicle.tagline}</p>
+          <strong style="font-size: 1.2rem; color: #e31937;">${vehicle.price}</strong>
+          <button style="
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #e31937;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+          ">View Details</button>
+        </div>
+      </div>
+    </div>
+  `).join("");
+  
+  const slides = Array.from(slidesContainer.querySelectorAll(".carousel-slide"));
+  let currentIndex = 0;
+  let isAnimating = false;
+  let autoSlideInterval;
+  let slidesToShow = 1;
+  
+  // Initialize carousel
+  function initCarousel() {
+    updateSlidesToShow();
+    positionSlides();
+    startAutoSlide();
+  }
+  
+  // Update number of slides to show based on screen width
+  function updateSlidesToShow() {
+    const containerWidth = slidesContainer.offsetWidth;
+    if (containerWidth >= 992) {
+      slidesToShow = 3;
+    } else if (containerWidth >= 768) {
+      slidesToShow = 2;
+    } else {
+      slidesToShow = 1;
+    }
+    currentIndex = Math.min(currentIndex, slides.length - slidesToShow);
+  }
+  
+  // Position slides based on current index
+  function positionSlides() {
+    const slideWidth = 100 / slidesToShow;
+    slides.forEach(slide => {
+      slide.style.flex = `0 0 ${slideWidth}%`;
+    });
+    
+    const offset = -currentIndex * slideWidth;
+    slidesContainer.style.transform = `translateX(${offset}%)`;
+  }
+  
+  // Navigate to specific slide
+  function goToSlide(index) {
+    if (isAnimating) return;
+    
+    isAnimating = true;
+    currentIndex = Math.max(0, Math.min(index, slides.length - slidesToShow));
+    positionSlides();
+    
+    setTimeout(() => {
+      isAnimating = false;
+    }, 500);
+  }
+  
+  // Next slide with proper boundary checking
+  function nextSlide() {
+    if (currentIndex >= slides.length - slidesToShow) {
+      goToSlide(0); // Loop back to start
+    } else {
+      goToSlide(currentIndex + 1);
+    }
+  }
+  
+  // Previous slide with proper boundary checking
+  function prevSlide() {
+    if (currentIndex <= 0) {
+      goToSlide(slides.length - slidesToShow); // Loop to end
+    } else {
+      goToSlide(currentIndex - 1);
+    }
+  }
+  
+  // Auto slide every 5 seconds
+  function startAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(nextSlide, 5000);
+  }
+  
+  // Event listeners
+  prevBtn.addEventListener("click", () => {
+    prevSlide();
+    startAutoSlide(); // Reset timer on manual navigation
+  });
+  
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
+    startAutoSlide(); // Reset timer on manual navigation
+  });
+  
+  // Handle window resize
+  window.addEventListener("resize", () => {
+    updateSlidesToShow();
+    positionSlides();
+  });
+  
+  // Initialize everything
+  initCarousel();
+});
     </script>
   </body>
 </html>
