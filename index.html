@@ -30,11 +30,6 @@
             position: absolute;
             z-index: 2;
         }
-        
-        @media (min-width: 768px) {
-          .carousel-inner { flex-wrap: nowrap; }
-          .carousel-slide { flex: 0 0 33.33%; display: block; }
-        }
     </style>
 </head>
 <body class="m-0 p-0 g-0" style="font-family: 'Poppins', Arial, sans-serif; width: 100%; overflow-x: hidden">
@@ -74,7 +69,7 @@
         </div>
 
         <div class="carousel-inner container-fluid">
-            <div class="carousel-item  active" style="
+            <div class="carousel-item active" style="
                 position: relative;
                 height: 500px;
                 overflow: hidden;
@@ -155,18 +150,18 @@
         </button>
     </div>
     
-    <section id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
-      <h2 class="text-center mb-5" style="font: 3em poppins; font-weight: 700;">Explore Our Vehicles</h2>
+    <section id="vehicleCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
+      <h2 class="text-center mb-4">Explore Our Vehicles</h2>
       <div class="carousel-inner"></div>
-      <button class="carousel-control-prev" type="button">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+      
+      <!-- Bootstrap mobile controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#vehicleCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       </button>
-      <button class="carousel-control-next" type="button">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+      <button class="carousel-control-next" type="button" data-bs-target="#vehicleCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
       </button>
-    </section>
+  </section>
 
     <section id="shopping Tools">
       <div class="container">
@@ -202,95 +197,6 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-    <script>
-      const vehicles = [
-        { 
-          year: "2024", 
-          name: "Tacoma", 
-          tagline: "Redefine your limits.", 
-          price: "$31,590", 
-          image: "https://toyotacanada.scene7.com/is/image/toyotacanada/20_Tacoma_TRD_Off-Road_Cement_1?ts=1688694123022&$Media-Large$&dpr=off" 
-        },
-        { 
-          year: "2024", 
-          name: "Tundra", 
-          tagline: "Take on the toughest demands.", 
-          price: "$40,090", 
-          image: "https://images.customwheeloffset.com/web-compressed/936421-1-2020-tundra-toyota-bulletproof-lifted-12in-american-truxx-dna-custom.jpg" 
-        },
-        { 
-          year: "2024", 
-          name: "RAV4", 
-          tagline: "Adventure awaits.", 
-          price: "$28,350", 
-          image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/2019_Toyota_RAV4_LE_2.5L_front_4.14.19.jpg/330px-2019_Toyota_RAV4_LE_2.5L_front_4.14.19.jpg" 
-        },
-        { 
-          year: "2024", 
-          name: "Camry", 
-          tagline: "The best never rests.", 
-          price: "$26,420", 
-          image: "https://global.toyota/pages/models/images/20191018/kv/camry_w1920_01.jpg" 
-        },
-      ];
-      
-      document.addEventListener("DOMContentLoaded", function() {
-        const carousel = document.querySelector("#cardCarousel");
-        const slidesContainer = carousel.querySelector(".carousel-inner");
-        
-        // Generate slides HTML
-        slidesContainer.innerHTML = vehicles.map((vehicle, index) => `
-          <div class="carousel-item ${index === 0 ? 'active' : ''}">
-            <div class="card">
-              <div class="img-wrapper">
-                <img src="${vehicle.image}" alt="${vehicle.name}">
-              </div>
-              <div class="card-body">
-                <h3 class="card-title">${vehicle.year} ${vehicle.name}</h3>
-                <p class="card-text">${vehicle.tagline}</p>
-                <strong>${vehicle.price}</strong>
-                <button>View Details</button>
-              </div>
-            </div>
-          </div>
-        `).join("");
-    
-        // Initialize custom carousel behavior only on desktop
-        if (window.matchMedia("(min-width: 768px)").matches) {
-          // Remove the auto-ride attribute to prevent conflict
-          carousel.removeAttribute('data-bs-ride');
-          
-          const carouselInner = carousel.querySelector('.carousel-inner');
-          const cardWidth = carousel.querySelector('.carousel-item').offsetWidth;
-          let scrollPosition = 0;
-    
-          // Calculate how many cards to show based on container width
-          const cardsToShow = Math.floor(carouselInner.offsetWidth / cardWidth);
-          
-          carousel.querySelector('.carousel-control-next').addEventListener('click', function() {
-            const maxScroll = carouselInner.scrollWidth - (cardWidth * cardsToShow);
-            if (scrollPosition < maxScroll) {
-              scrollPosition += cardWidth * cardsToShow;
-              carouselInner.scrollTo({
-                left: scrollPosition,
-                behavior: 'smooth'
-              });
-            }
-          });
-    
-          carousel.querySelector('.carousel-control-prev').addEventListener('click', function() {
-            if (scrollPosition > 0) {
-              scrollPosition -= cardWidth * cardsToShow;
-              carouselInner.scrollTo({
-                left: scrollPosition,
-                behavior: 'smooth'
-              });
-            }
-          });
-        }
-      });
-    </script>
+   <script src="js/script.js"></script>
   </body>
 </html>

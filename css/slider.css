@@ -1,95 +1,254 @@
-    .card {
-        margin: 0 0.5em;
-        box-shadow: 0.125em 0.375em 0.5em 0 rgba(22, 22, 26, 0.18);
-        font-size: 0.9rem;
-        text-align: center;
-        padding: 1.25em;
-        border: 0.0625em solid #ddd;
-        border-radius: 0.625em;
-        height: 100%;
-    }
-
-    #cardCarousel .img-wrapper {
-        max-width: 100%;
-        height: 21.875em; /* 350px / 16 */
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-    }
-    #cardCarousel img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    /* For mobile (default) */
-    #cardCarousel .carousel-inner {
-        display: block;
-        padding: 1em;
-    }
-    
-  /* For desktop (768px and up) */
+/* ===== BASE CAROUSEL STYLES ===== */
+#vehicleCarousel {
+    position: relative;
+    padding: 0 40px; /* More room for custom controls */
+    margin: 2rem auto;
+    max-width: 1400px;
+  }
+  
+  /* ===== CARD STYLES ===== */
+  .vehicle-card {
+    margin: 0 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+    background: white;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid #f0f0f0;
+  }
+  
+  .vehicle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+  }
+  
+  .card-img-container {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .vehicle-card:hover img {
+    transform: scale(1.03);
+  }
+  
+  .card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-body h3 {
+    font-size: 1.4rem;
+    margin: 0 0 8px 0;
+    color: #2c3e50;
+    font-weight: 600;
+  }
+  
+  .card-body p {
+    color: #7f8c8d;
+    margin-bottom: 16px;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  
+  .card-body h4 {
+    color: #e74c3c;
+    font-size: 1.3rem;
+    margin: 8px 0 16px 0;
+    font-weight: 700;
+  }
+  
+  .btn-view-details {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-top: auto;
+  }
+  
+  .btn-view-details:hover {
+    background: linear-gradient(135deg, #c0392b, #a5281b);
+    transform: translateY(-2px);
+  }
+  
+  /* ===== MOBILE STYLES ===== */
+  #vehicleCarousel .carousel-inner {
+    padding: 15px 30px;
+  }
+  
+  /* Bootstrap mobile controls */
+  #vehicleCarousel .carousel-control-prev,
+  #vehicleCarousel .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    background: rgba(231, 76, 60, 0.8);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+  
+  #vehicleCarousel .carousel-control-prev {
+    left: 5px;
+  }
+  
+  #vehicleCarousel .carousel-control-next {
+    right: 5px;
+  }
+  
+  #vehicleCarousel .carousel-control-prev:hover,
+  #vehicleCarousel .carousel-control-next:hover {
+    background: rgba(231, 76, 60, 1);
+  }
+  
+  /* ===== DESKTOP STYLES ===== */
   @media (min-width: 768px) {
-    #cardCarousel .carousel-inner {
+    #vehicleCarousel .carousel-inner {
       display: flex;
-      overflow: hidden;
-      scroll-behavior: smooth;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 30px 10px;
+      margin: 0 -12px;
+      scrollbar-width: none;
     }
     
-    #cardCarousel .carousel-item {
-      flex: 0 0 calc(100% / 3);
+    #vehicleCarousel .carousel-inner::-webkit-scrollbar {
+      display: none;
+    }
+    
+    #vehicleCarousel .carousel-item {
+      flex: 0 0 calc(33.333% - 24px);
+      margin: 0 12px;
+      scroll-snap-align: start;
       display: block;
-      margin-right: 0;
     }
     
-    .img-wrapper {
-      height: 21vw;
+    /* Hide Bootstrap mobile controls on desktop */
+    #vehicleCarousel .carousel-control-prev,
+    #vehicleCarousel .carousel-control-next {
+      display: none;
+    }
+    
+    /* Custom desktop controls */
+    .custom-scroll-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      opacity: 0.9;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      border: none;
+      font-size: 1.4rem;
+      color: white;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+    
+    .custom-scroll-control:hover {
+      opacity: 1;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+      background: linear-gradient(135deg, #ff5348, #e74c3c);
+    }
+    
+    .custom-prev {
+      left: 0;
+    }
+    
+    .custom-next {
+      right: 0;
     }
   }
-
-    #cardCarousel .card-body {
-        padding: 0.9375em; /* 15px / 16 */
+  
+  /* ===== SECTION HEADING ===== */
+  .section-heading {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+  }
+  
+  .section-heading:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #e74c3c;
+    margin: 15px auto 0;
+    border-radius: 2px;
+  }
+  
+  /* ===== RESPONSIVE ADJUSTMENTS ===== */
+  @media (max-width: 992px) {
+    .card-img-container {
+      height: 180px;
     }
-
-    #cardCarousel .card-title {
-        margin: 0.625em 0; /* 10px / 16 */
-        font-size: 1.5rem; 
-        font-weight: 600;
+    
+    /* Adjust button positioning for tablets */
+    .custom-prev {
+      left: -10px !important;
     }
-
-    #cardCarousel .card-text {
-        color: #666; 
-        margin-bottom: 0.9375em; /* 15px / 16 */
+    
+    .custom-next {
+      right: -10px !important;
     }
-    #cardCarousel strong {
-        font-size: 1.2rem; 
-        color: #e31937;
+  }
+  
+  @media (max-width: 576px) {
+    #vehicleCarousel {
+      padding: 0 30px;
     }
-    #cardCarousel button {
-        display: block;
-        width: 100%;
-        padding: 0.625em; /* 10px / 16 */
-        margin-top: 0.9375em; /* 15px / 16 */
-        background-color: #e31937;
-        color: white;
-        border: none;
-        border-radius: 0.3125em; /* 5px / 16 */
-        cursor: pointer;
-        font-weight: 600;
+    
+    .card-img-container {
+      height: 160px;
     }
-
-    #cardCarousel .carousel-control-prev,
-    #cardCarousel .carousel-control-next {
-        width: 3.125em; /* 50px / 16 */
-        height: 3.125em; /* 50px / 16 */
-        background-color: #e1e1e1;
-        border-radius: 50%;
-        top: 50%;
-        transform: translateY(-50%);
-        opacity: 0.5;
+    
+    .card-body {
+      padding: 18px;
     }
-
-    #cardCarousel .carousel-control-prev:hover,
-    #cardCarousel .carousel-control-next:hover {
-        opacity:0.8;
+    
+    .section-heading {
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
     }
+    
+    /* Mobile navigation buttons */
+    #vehicleCarousel .carousel-control-prev,
+    #vehicleCarousel .carousel-control-next {
+      width: 36px;
+      height: 36px;
+    }
+    
+    #vehicleCarousel .carousel-control-prev {
+      left: 0;
+    }
+    
+    #vehicleCarousel .carousel-control-next {
+      right: 0;
+    }
+  }
