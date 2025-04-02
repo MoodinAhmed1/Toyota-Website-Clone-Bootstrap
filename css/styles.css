@@ -15,14 +15,14 @@ body {
     margin-bottom: 1rem;
     color: #333;
 }
-.footer-link {
+a {
     color: #333;
     text-decoration: none;
     display: block;
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
 }
-.footer-link:hover {
+a:hover {
     color: #e31937; /* Toyota red */
     text-decoration: underline;
 }

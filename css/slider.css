@@ -1,14 +1,12 @@
 /* ===== BASE CAROUSEL STYLES ===== */
 #vehicleCarousel {
     position: relative;
-    padding: 0 40px; /* More room for custom controls */
     margin: 2rem auto;
-    max-width: 1400px;
+    max-width: 700px;
   }
   
   /* ===== CARD STYLES ===== */
   .vehicle-card {
-    margin: 0 12px;
     border-radius: 12px;
     overflow: hidden;
     height: 100%;
@@ -24,11 +22,15 @@
   }
   
   .card-img-container {
-    height: 220px;
+    height: 270px;
     overflow: hidden;
     position: relative;
   }
-  
+  @media screen and (min-width: 1024px) {
+     .card-img-container {
+        height: 300px; 
+    }
+}
   .card-img-container img {
     width: 100%;
     height: 100%;
@@ -104,11 +106,11 @@
   }
   
   #vehicleCarousel .carousel-control-prev {
-    left: 5px;
+    left: 7px;
   }
   
   #vehicleCarousel .carousel-control-next {
-    right: 5px;
+    right:7px;
   }
   
   #vehicleCarousel .carousel-control-prev:hover,
@@ -116,72 +118,7 @@
     background: rgba(231, 76, 60, 1);
   }
   
-  /* ===== DESKTOP STYLES ===== */
-  @media (min-width: 768px) {
-    #vehicleCarousel .carousel-inner {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding: 30px 10px;
-      margin: 0 -12px;
-      scrollbar-width: none;
-    }
-    
-    #vehicleCarousel .carousel-inner::-webkit-scrollbar {
-      display: none;
-    }
-    
-    #vehicleCarousel .carousel-item {
-      flex: 0 0 calc(33.333% - 24px);
-      margin: 0 12px;
-      scroll-snap-align: start;
-      display: block;
-    }
-    
-    /* Hide Bootstrap mobile controls on desktop */
-    #vehicleCarousel .carousel-control-prev,
-    #vehicleCarousel .carousel-control-next {
-      display: none;
-    }
-    
-    /* Custom desktop controls */
-    .custom-scroll-control {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 56px;
-      height: 56px;
-      background: linear-gradient(135deg, #e74c3c, #c0392b);
-      border-radius: 50%;
-      box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 10;
-      opacity: 0.9;
-      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-      border: none;
-      font-size: 1.4rem;
-      color: white;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    }
-    
-    .custom-scroll-control:hover {
-      opacity: 1;
-      transform: translateY(-50%) scale(1.1);
-      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
-      background: linear-gradient(135deg, #ff5348, #e74c3c);
-    }
-    
-    .custom-prev {
-      left: 0;
-    }
-    
-    .custom-next {
-      right: 0;
-    }
-  }
+
   
   /* ===== SECTION HEADING ===== */
   .section-heading {
@@ -203,141 +140,3 @@
     border-radius: 2px;
   }
   
-  /* ===== RESPONSIVE ADJUSTMENTS ===== */
-  @media (max-width: 992px) {
-    .card-img-container {
-      height: 180px;
-    }
-    
-    /* Adjust button positioning for tablets */
-    .custom-prev {
-      left: -10px !important;
-    }
-    
-    .custom-next {
-      right: -10px !important;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    #vehicleCarousel {
-      padding: 0 30px;
-    }
-    
-    .card-img-container {
-      height: 160px;
-    }
-    
-    .card-body {
-      padding: 18px;
-    }
-    
-    .section-heading {
-      font-size: 1.8rem;
-      margin-bottom: 2rem;
-    }
-    
-    /* Mobile navigation buttons */
-    #vehicleCarousel .carousel-control-prev,
-    #vehicleCarousel .carousel-control-next {
-      width: 36px;
-      height: 36px;
-    }
-    
-    #vehicleCarousel .carousel-control-prev {
-      left: 0;
-    }
-    
-    #vehicleCarousel .carousel-control-next {
-      right: 0;
-    }
-  }
-
-  /* ===== MOBILE STYLES ===== */
-@media (max-width: 576px) {
-  #vehicleCarousel {
-      padding: 0 5px; /* Reduced from 30px */
-      margin: 1rem auto; /* Reduced from 2rem */
-  }
-  
-  .vehicle-card {
-      margin: 0 5px; /* Reduced from 12px */
-  }
-  
-  #vehicleCarousel .carousel-inner {
-      padding: 5px 0; /* Reduced from 15px 30px */
-  }
-  
-  .card-img-container {
-      height: 140px; /* Reduced from 160px */
-  }
-  
-  .card-body {
-      padding: 12px; /* Reduced from 18px */
-  }
-  
-  .card-body h3 {
-      font-size: 1.2rem; /* Reduced from 1.4rem */
-  }
-  
-  .card-body p {
-      font-size: 0.85rem; /* Reduced from 1rem */
-      margin-bottom: 12px; /* Reduced from 16px */
-  }
-  
-  .card-body h4 {
-      font-size: 1.1rem; /* Reduced from 1.3rem */
-      margin: 4px 0 12px 0; /* Reduced margins */
-  }
-  
-  .btn-view-details {
-      padding: 10px; /* Reduced from 12px */
-      font-size: 0.8rem; /* Reduced from 0.9rem */
-  }
-  
-  /* Make mobile navigation controls more compact */
-  #vehicleCarousel .carousel-control-prev,
-  #vehicleCarousel .carousel-control-next {
-      width: 30px; /* Reduced from 36px */
-      height: 30px; /* Reduced from 36px */
-  }
-  
-  .section-heading {
-      font-size: 1.5rem; /* Reduced from 1.8rem */
-      margin-bottom: 1.5rem; /* Reduced from 2rem */
-  }
-  
-  .section-heading:after {
-      width: 60px; /* Reduced from 80px */
-      height: 3px; /* Reduced from 4px */
-      margin: 10px auto 0; /* Reduced from 15px */
-  }
-}
-
-/* Extra small devices (phones under 400px) */
-@media (max-width: 400px) {
-  #vehicleCarousel {
-      padding: 0 2px;
-  }
-  
-  .vehicle-card {
-      margin: 0 3px;
-  }
-  
-  .card-img-container {
-      height: 120px;
-  }
-  
-  .card-body {
-      padding: 8px;
-  }
-  
-  .card-body h3 {
-      font-size: 1.1rem;
-  }
-  
-  .btn-view-details {
-      padding: 8px;
-      font-size: 0.75rem;
-  }
-}

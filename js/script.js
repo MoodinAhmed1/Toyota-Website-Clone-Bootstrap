@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <div class="carousel-item ${index === 0 ? 'active' : ''}">
             <div class="vehicle-card">
                 <div class="card-img-container">
-                    <img src="${vehicle.image}" alt="${vehicle.name}" class="d-block w-100">
+                    <img src="${vehicle.image}" alt="${vehicle.name}">
                 </div>
                 <div class="card-body">
                     <h3>${vehicle.year} ${vehicle.name}</h3>
@@ -50,68 +50,4 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </div>
     `).join("");
-    
-    // Only add custom scroll for desktop
-    if (window.matchMedia("(min-width: 768px)").matches) {
-        setupDesktopScroll();
-    }
-    
-    // Handle window resize
-    window.addEventListener('resize', function() {
-        if (window.matchMedia("(min-width: 768px)").matches) {
-            if (!carousel.querySelector('.custom-prev')) {
-                setupDesktopScroll();
-            }
-        } else {
-            // Ensure Bootstrap carousel is properly initialized
-            if (typeof bootstrap !== 'undefined') {
-                new bootstrap.Carousel(carousel);
-            }
-        }
-    });
-    
-    function setupDesktopScroll() {
-        // Remove Bootstrap carousel functionality
-        carousel.removeAttribute('data-bs-ride');
-        
-        const inner = carousel.querySelector(".carousel-inner");
-        
-        // Add custom navigation buttons
-        const prevBtn = document.createElement('div');
-        prevBtn.className = 'custom-scroll-control custom-prev';
-        prevBtn.innerHTML = '❮';
-        
-        const nextBtn = document.createElement('div');
-        nextBtn.className = 'custom-scroll-control custom-next';
-        nextBtn.innerHTML = '❯';
-        
-        carousel.appendChild(prevBtn);
-        carousel.appendChild(nextBtn);
-        
-        // Update button visibility
-        const updateButtons = () => {
-            const maxScroll = inner.scrollWidth - inner.clientWidth;
-            prevBtn.style.display = inner.scrollLeft > 10 ? 'flex' : 'none';
-            nextBtn.style.display = inner.scrollLeft < maxScroll - 10 ? 'flex' : 'none';
-        };
-        
-        // Navigation handlers
-        nextBtn.addEventListener('click', () => {
-            inner.scrollBy({
-                left: inner.clientWidth * 0.8,
-                behavior: 'smooth'
-            });
-        });
-        
-        prevBtn.addEventListener('click', () => {
-            inner.scrollBy({
-                left: -inner.clientWidth * 0.8,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Initial setup
-        updateButtons();
-        inner.addEventListener('scroll', updateButtons);
-    }
 });
